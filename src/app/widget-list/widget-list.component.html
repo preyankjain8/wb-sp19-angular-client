@@ -1,0 +1,20 @@
+<div className="list-group"
+     *ngFor="let widget of widgets">
+  <div [ngSwitch]="widget.type">
+    <div *ngSwitchCase="'HEADING'">
+      <app-heading-widget [widget]="widget"></app-heading-widget>
+    </div>
+    <div *ngSwitchCase="'LIST'">
+      <app-list-widget [widget]="widget"></app-list-widget>
+    </div>
+    <div *ngSwitchCase="'PARAGRAPH'">
+      <app-paragraph-widget [widget]="widget"></app-paragraph-widget>
+    </div>
+    <div *ngSwitchCase="'IMAGE'">
+      <app-image-widget [widget]="widget"></app-image-widget>
+    </div>
+    <div *ngSwitchCase="'LINK'">
+      <app-link-widget [widget]="widget"></app-link-widget>
+    </div>
+  </div>
+</div>

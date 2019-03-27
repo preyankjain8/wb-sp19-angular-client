@@ -1,0 +1,135 @@
+
+.input-fld{
+  background: silver;
+}
+
+.nav-link{
+  color: white;
+}
+
+.card{
+  padding: 10px;
+}
+
+.fa-window-close{
+  padding-left: 5px;
+}
+
+.widget-field{
+  width: 100%;
+}
+.full-width-div{
+  width: 100%;
+}
+
+.fa-toggle-off{
+  padding: 5px;
+}
+
+.fa-plus-square{
+  color: red;
+}
+
+#top-row{
+  background: gray;
+}
+
+.side-nav{
+  margin-top: 20px;
+}
+
+.fa-window-close{
+  color: red;
+}
+
+#course-editor-heading{
+  background: lightgrey;
+  color: black;
+}
+
+
+#course-editor-second-row{
+  background: lightgrey;
+}
+
+#course-editor-module-list{
+  background: lightgrey;
+}
+
+
+.topic-pill {
+  color: black;
+  background-color: lightgrey;
+}
+
+.active {
+  color: aqua;
+  background-color: gray;
+}
+
+.btn-webdv {
+  height: 100%;
+  background-color: gray;
+  color: white;
+}
+
+.btn-webdv-2{
+  height: 100%;
+  width: 100%;
+  background-color: gray;
+  color: white;
+}
+
+#lsn-cncl-btn{
+  display: none;
+}
+
+#top-cncl-btn{
+  display: none;
+}
+
+#module-cncl-btn{
+  height: 100%;
+  width: 100%;
+  background-color: gray;
+  color: white;
+  display: none;
+}
+
+.list-group-item{
+  background-color: lightgrey;
+}
+
+.fa-times{
+  color:black;
+}
+
+.fa-pencil{
+  color:black;
+}
+
+#module-ulist-webdv ul{
+  background-color: lightgrey;
+}
+
+#web-dv-list-item{
+  background-color: lightgrey;
+  color: black;
+}
+
+#module-input-fld{
+  background-color: lightgrey;
+  color: black;
+}
+
+#web-dv-list-item.active{
+  background-color: gray;
+}
+
+.card{
+  outline: green;
+}
+
+#widget-heading{
+  color: blue;
+}

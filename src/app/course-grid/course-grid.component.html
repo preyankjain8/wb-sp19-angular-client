@@ -1,0 +1,32 @@
+<div>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr class="table-heading">
+        <th class="d-none d-md-table-cell"></th>
+        <th class="d-none d-md-table-cell"></th>
+        <th class="title">Title</th>
+        <th class="d-none d-md-table-cell">Owned by</th>
+        <th class="empty-column">
+          <i class="fa fa-th" aria-hidden="true"></i>
+        </th>
+        <th class="empty-column d-none d-md-table-cell"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="table-heading"
+          *ngFor="let course of courses">
+        <td class="empty-column d-none d-md-table-cell"></td>
+        <td class="empty-column d-none d-md-table-cell"></td>
+        <td class="title">
+          <a routerLink="./{{course.id}}/module">
+            {{course.title}}
+          </a></td>
+        <td class="d-none d-md-table-cell">me</td>
+        <td class="empty-column d-none d-md-table-cell"></td>
+        <td class="empty-column d-none d-md-table-cell"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

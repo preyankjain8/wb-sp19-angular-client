@@ -1,0 +1,7 @@
+<ul class="nav nav-pills">
+  <li class='nav-item'
+      *ngFor="let topic of topics"
+  (click)="topicSelected(topic)">
+    {{topic.title}} &nbsp;
+  </li>
+</ul>

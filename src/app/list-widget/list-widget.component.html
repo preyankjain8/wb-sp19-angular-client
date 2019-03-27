@@ -1,0 +1,18 @@
+<div [ngSwitch]="widget.size">
+  <div *ngSwitchCase="6">
+    <ul>
+      <li
+        *ngFor="let line of lines">
+        {{line}}
+      </li>
+    </ul>
+  </div>
+  <div *ngSwitchCase="7">
+    <ol>
+      <li
+        *ngFor="let line of lines">
+        {{line}}
+      </li>
+    </ol>
+  </div>
+</div>
