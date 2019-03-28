@@ -865,17 +865,11 @@ var CourseServiceClient = /** @class */ (function () {
                 .then(function (response) { return response.json(); });
         };
         this.findCourseById = function (courseId) {
-            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/courses/' + courseId, {
-                method: 'GET',
-                credentials: 'include'
-            })
+            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/courses/' + courseId)
                 .then(function (response) { return response.json(); });
         };
         this.findCourseAuthor = function (courseId) {
-            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/courses/' + courseId + 'author', {
-                method: 'GET',
-                credentials: 'include'
-            })
+            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/courses/' + courseId + 'author')
                 .then(function (response) { return response.json(); });
         };
     }
@@ -899,27 +893,15 @@ __webpack_require__.r(__webpack_exports__);
 var LessonServiceClient = /** @class */ (function () {
     function LessonServiceClient() {
         this.findLessonsForModule = function (moduleId) {
-            if (moduleId != null) {
-                return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/module/' + moduleId + '/lesson', {
-                    method: 'GET',
-                    credentials: 'include',
-                }).then(function (response) { return response.json(); }).catch(function (error) {
-                    console.log(error.toString());
-                });
-            }
+            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/module/' + moduleId + '/lesson')
+                .then(function (response) { return response.json(); });
         };
         this.findLessonById = function (lessonId) {
-            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/lesson/' + lessonId, {
-                method: 'GET',
-                credentials: 'include'
-            })
+            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/lesson/' + lessonId)
                 .then(function (response) { return response.json(); });
         };
         this.findAllLessons = function () {
-            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/lessons', {
-                method: 'GET',
-                credentials: 'include'
-            })
+            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/lessons')
                 .then(function (response) { return response.json(); });
         };
     }
@@ -943,25 +925,15 @@ __webpack_require__.r(__webpack_exports__);
 var ModuleServiceClient = /** @class */ (function () {
     function ModuleServiceClient() {
         this.findModulesForCourse = function (courseId) {
-            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/course/' + courseId + '/modules', {
-                method: 'GET'
-            }).then(function (response) { return response.json(); })
-                .catch(function (error) {
-                console.log(error.toString());
-            });
+            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/course/' + courseId + '/modules')
+                .then(function (response) { return response.json(); });
         };
         this.findModuleById = function (moduleId) {
-            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/modules/' + moduleId, {
-                method: 'GET',
-                credentials: 'include'
-            })
+            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/modules/' + moduleId)
                 .then(function (response) { return response.json(); });
         };
         this.findAllModules = function () {
-            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/modules', {
-                method: 'GET',
-                credentials: 'include'
-            })
+            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/modules')
                 .then(function (response) { return response.json(); });
         };
     }
@@ -985,25 +957,15 @@ __webpack_require__.r(__webpack_exports__);
 var TopicServiceClient = /** @class */ (function () {
     function TopicServiceClient() {
         this.findTopicsForLesson = function (lessonId) {
-            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/lesson/' + lessonId + '/topic', {
-                method: 'GET',
-                credentials: 'include',
-            }).then(function (response) { return response.json(); }).catch(function (error) {
-                console.log(error.toString());
-            });
+            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/lesson/' + lessonId + '/topic')
+                .then(function (response) { return response.json(); });
         };
         this.findTopicById = function (topicId) {
-            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/topic/' + topicId, {
-                method: 'GET',
-                credentials: 'include'
-            })
+            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/topic/' + topicId)
                 .then(function (response) { return response.json(); });
         };
         this.findAllTopics = function () {
-            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/topics', {
-                method: 'GET',
-                credentials: 'include'
-            })
+            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/topics')
                 .then(function (response) { return response.json(); });
         };
     }
@@ -1027,25 +989,15 @@ __webpack_require__.r(__webpack_exports__);
 var WidgetServiceClient = /** @class */ (function () {
     function WidgetServiceClient() {
         this.findWidgetsForTopic = function (topicId) {
-            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/topic/' + topicId + '/widget', {
-                method: 'GET',
-                credentials: 'include',
-            }).then(function (response) { return response.json(); }).catch(function (error) {
-                console.log(error.toString());
-            });
+            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/topic/' + topicId + '/widget')
+                .then(function (response) { return response.json(); });
         };
         this.findWidgetById = function (widgetId) {
-            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/widget/' + widgetId, {
-                method: 'GET',
-                credentials: 'include'
-            })
+            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/widget/' + widgetId)
                 .then(function (response) { return response.json(); });
         };
         this.findAllWidgets = function () {
-            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/widgets', {
-                method: 'GET',
-                credentials: 'include'
-            })
+            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/widgets')
                 .then(function (response) { return response.json(); });
         };
     }
