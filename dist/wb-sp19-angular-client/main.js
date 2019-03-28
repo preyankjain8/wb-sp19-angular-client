@@ -861,12 +861,8 @@ __webpack_require__.r(__webpack_exports__);
 var CourseServiceClient = /** @class */ (function () {
     function CourseServiceClient() {
         this.findAllCourses = function () {
-            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/courses', {
-                method: 'GET'
-            }).then(function (response) { return response.json(); })
-                .catch(function (error) {
-                console.log(error.toString());
-            });
+            return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/courses')
+                .then(function (response) { return response.json(); });
         };
         this.findCourseById = function (courseId) {
             return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/courses/' + courseId, {
