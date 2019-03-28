@@ -1,6 +1,6 @@
 export class WidgetServiceClient {
   findWidgetsForTopic = (topicId) => {
-    return fetch('http://localhost:8080/api/student/topic/' + topicId + '/widget', {
+    return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/topic/' + topicId + '/widget', {
       method: 'GET',
       credentials: 'include',
     }).then(response => response.json()).catch(error => {
@@ -9,7 +9,7 @@ export class WidgetServiceClient {
   }
 
   findWidgetById = widgetId => {
-    return fetch('http://localhost:8080/api/student/widget/' + widgetId, {
+    return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/widget/' + widgetId, {
       method: 'GET',
       credentials: 'include'
     })
@@ -17,7 +17,7 @@ export class WidgetServiceClient {
   }
 
   findAllWidgets = () => {
-    return fetch('http://localhost:8080/api/student/widgets', {
+    return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/widgets', {
       method: 'GET',
       credentials: 'include'
     })

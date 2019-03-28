@@ -1,7 +1,7 @@
 export class CourseServiceClient {
 
   findAllCourses = () => {
-    return fetch('http://localhost:8080/api/student/courses', {
+    return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/courses', {
       method: 'GET'
     }).then(response => response.json())
       .catch(error => {
@@ -10,14 +10,14 @@ export class CourseServiceClient {
   }
 
   findCourseById = courseId => {
-    return fetch('http://localhost:8080/api/student/courses/' + courseId,{
+    return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/courses/' + courseId,{
       method: 'GET',
       credentials: 'include'
     })
       .then(response => response.json());
   }
   findCourseAuthor = courseId => {
-    return fetch('http://localhost:8080/api/student/courses/' + courseId + 'author', {
+    return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/courses/' + courseId + 'author', {
       method: 'GET',
       credentials: 'include'
     })

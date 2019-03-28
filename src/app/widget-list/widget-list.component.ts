@@ -17,6 +17,9 @@ export class WidgetListComponent implements OnInit, OnDestroy {
   checkEmptyList(){
     if (this.widgets === undefined || this.widgets.length === 0) {
       alert('No widgets for selected topic!');
+    } else {
+      console.log(this.widgets.length);
+      this.widgets.forEach(w => console.log(w));
     }
   }
   ngOnInit() {

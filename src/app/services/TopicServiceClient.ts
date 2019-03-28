@@ -1,6 +1,6 @@
 export class TopicServiceClient {
   findTopicsForLesson = (lessonId) => {
-    return fetch('http://localhost:8080/api/student/lesson/' + lessonId + '/topic', {
+    return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/lesson/' + lessonId + '/topic', {
       method: 'GET',
       credentials: 'include',
     }).then(response => response.json()).catch(error  => {
@@ -9,7 +9,7 @@ export class TopicServiceClient {
   }
 
   findTopicById = topicId => {
-    return fetch('http://localhost:8080/api/student/topic/' + topicId, {
+    return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/topic/' + topicId, {
       method: 'GET',
       credentials: 'include'
     })
@@ -17,7 +17,7 @@ export class TopicServiceClient {
   }
 
   findAllTopics = () => {
-    return fetch('http://localhost:8080/api/student/topics', {
+    return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/topics', {
       method: 'GET',
       credentials: 'include'
     })
