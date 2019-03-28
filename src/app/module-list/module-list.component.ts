@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {ModuleServiceClient} from '../services/ModuleServiceClient';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -7,31 +7,33 @@ import {ActivatedRoute, Router} from '@angular/router';
   templateUrl: './module-list.component.html',
   styleUrls: ['./module-list.component.css']
 })
-export class ModuleListComponent implements OnDestroy, OnInit {
+export class ModuleListComponent implements OnInit, OnChanges {
 
 
   constructor(private service: ModuleServiceClient, private route: ActivatedRoute, private router: Router) { }
+
+  @Input()
+  courseId;
+  @Input()
+  selectedModuleId;
   subscription;
   modules = []
-  courseId = {}
-  selectedModule = {}
   moduleSelected = module => {
-    this.selectedModule = module;
+    this.selectedModuleId = module.id;
     this.router.navigate(['course/' + this.courseId + '/module/' + module.id + '/lesson']);
   }
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['courseId'] !== undefined) {
+      this.courseId = changes['courseId'].currentValue;
+    }
+    if (changes['selectedModuleId'] !== undefined){
+      this.selectedModuleId = changes['selectedModuleId'].currentValue;
+    }
   }
 
   ngOnInit() {
-    this.subscription = this.route.params.subscribe(
-      params => {
-        this.courseId = params.courseId;
-        this.service
-          .findModulesForCourse(this.courseId)
-          .then(modules => this.modules = modules);
-      }
-    )
+    console.log(this.selectedModuleId);
     this.service
       .findModulesForCourse(this.courseId)
       .then(modules => this.modules = modules);

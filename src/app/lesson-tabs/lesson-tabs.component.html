@@ -1,7 +1,7 @@
 <ul class="nav nav-tabs"
     id="course-editor-lessonTabs">
   <li class="nav-item"
-      [ngClass]="{'active': lesson.id === selectedLesson.id}"
+      [ngClass]="{'active': lesson.id == selectedLessonId}"
       *ngFor="let lesson of lessons"
   (click)="lessonSelected(lesson)">
       {{lesson.title}}&nbsp;&nbsp;

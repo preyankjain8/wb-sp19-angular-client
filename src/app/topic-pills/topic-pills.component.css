@@ -3,3 +3,11 @@
   color: gray;
   text-align: center;
 }
+
+.topic-item{
+  background-color: lightgrey;
+}
+
+.topic-item.active {
+  background-color: #4e555b;
+}

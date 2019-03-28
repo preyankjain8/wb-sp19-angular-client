@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnChanges, OnDestroy, OnInit, SimpleChanges, Input} from '@angular/core';
 import {ModuleServiceClient} from '../services/ModuleServiceClient';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TopicServiceClient} from '../services/TopicServiceClient';
@@ -8,35 +8,38 @@ import {TopicServiceClient} from '../services/TopicServiceClient';
   templateUrl: './topic-pills.component.html',
   styleUrls: ['./topic-pills.component.css']
 })
-export class TopicPillsComponent implements OnInit, OnDestroy {
+export class TopicPillsComponent implements OnInit, OnChanges {
   constructor(private service: TopicServiceClient, private route: ActivatedRoute, private router: Router) { }
-  subscription;
-  moduleId = {}
-  courseId = {}
-  lessonId = 0
+  @Input()
+  moduleId;
+  @Input()
+  courseId;
+  @Input()
+  lessonId;
+  @Input()
+  selectedTopicId;
   topics = []
   topic = {}
   topicSelected = topic => {
-    this.topic = topic;
+    this.selectedTopicId = topic.id;
     this.router.navigate(['course/' + this.courseId + '/module/' +
     '' + this.moduleId + '/lesson/' + this.lessonId + '/topic/' + topic.id + '/widget']);
   }
-  ngOnInit() {
-    this.subscription = this.route.params.subscribe(
-      params => {
-        this.lessonId = params['lessonId'];
-        this.moduleId = params.moduleId;
-        this.courseId = params.courseId;
-        this.service
-          .findTopicsForLesson(this.lessonId)
-          .then(topics => this.topics = topics);
-      }
-    );
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['lessonId'] !== undefined){
+      this.lessonId = changes['lessonId'].currentValue;
+    }
+    if (changes['selectedTopicId'] !== undefined){
+      this.selectedTopicId = changes['selectedTopicId'].currentValue;
+    }
     this.service
       .findTopicsForLesson(this.lessonId)
       .then(topics => this.topics = topics);
   }
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+  ngOnInit() {
+    this.service
+      .findTopicsForLesson(this.lessonId)
+      .then(topics => this.topics = topics);
   }
 }

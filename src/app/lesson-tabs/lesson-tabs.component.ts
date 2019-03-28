@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, Input, SimpleChanges, OnChanges} from '@angular/core';
 import {LessonServiceClient} from '../services/LessonServiceClient';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -7,34 +7,38 @@ import {ActivatedRoute, Router} from '@angular/router';
   templateUrl: './lesson-tabs.component.html',
   styleUrls: ['./lesson-tabs.component.css']
 })
-export class LessonTabsComponent implements OnInit, OnDestroy {
+export class LessonTabsComponent implements OnInit, OnChanges {
+  @Input()
+  moduleId;
+  @Input()
+  courseId;
+  @Input()
+  selectedLessonId;
   constructor(private service: LessonServiceClient, private route: ActivatedRoute, private router: Router) { }
   subscription;
-  courseId = {}
-  moduleId = {}
-  lessons = []
+  lessons = [];
   selectedLesson = {}
   lessonSelected = lesson => {
-    this.selectedLesson = lesson;
+    this.selectedLessonId = lesson.id;
     this.router.navigate(['course/' + this.courseId + '/module/' + this.moduleId + '/lesson/' + lesson.id + '/topic']);
   }
 
-  ngOnInit() {
-    this.subscription = this.route.params.subscribe(
-      params => {
-        this.moduleId = params.moduleId;
-        this.courseId = params.courseId;
-        this.service
-          .findLessonsForModule(this.moduleId).catch(reason => console.log(reason.toString()))
-          .then(lessons => this.lessons = lessons);
-      }
-    );
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['moduleId'] !== undefined){
+      this.moduleId = changes['moduleId'].currentValue;
+    }
+    if (changes['selectedLessonId'] !== undefined){
+      this.selectedLessonId = changes['selectedLessonId'].currentValue;
+    }
     this.service
-        .findLessonsForModule(this.moduleId).catch(reason => console.log(reason.toString()))
-        .then(lessons => this.lessons = lessons);
+      .findLessonsForModule(this.moduleId).catch(reason => console.log(reason.toString()))
+      .then(lessons => this.lessons = lessons);
   }
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+
+  ngOnInit() {
+    this.service
+      .findLessonsForModule(this.moduleId).catch(reason => console.log(reason.toString()))
+      .then(lessons => this.lessons = lessons);
   }
 
 }

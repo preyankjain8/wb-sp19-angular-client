@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CourseServiceClient} from '../services/CourseServiceClient';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-course-grid',
@@ -9,14 +10,13 @@ import {CourseServiceClient} from '../services/CourseServiceClient';
 export class CourseGridComponent implements OnInit {
 
   constructor(private service: CourseServiceClient) { }
-
   courses = []
-  modules = []
   selectedCourse = {}
 
   selectCourse = course => {
     this.selectedCourse = course;
   }
+
 
   ngOnInit() {
     this.service

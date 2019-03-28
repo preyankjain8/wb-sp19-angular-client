@@ -16,4 +16,11 @@ export class CourseServiceClient {
     })
       .then(response => response.json());
   }
+  findCourseAuthor = courseId => {
+    return fetch('http://localhost:8080/api/student/courses/' + courseId + 'author', {
+      method: 'GET',
+      credentials: 'include'
+    })
+      .then(response => response.json());
+  }
 }

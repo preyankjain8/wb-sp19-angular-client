@@ -1,18 +1,18 @@
 <div>
   <div class="row" id="course-editor-second-row">
     <div class="col-4 d-none d-md-block">
-      <h4 id="course-editor-heading">Course Editor: <!--{{this.state.course.title}}--></h4>
+      <h4 id="course-editor-heading">{{course.title}}</h4>
     </div>
     <div className="col-8">
-      <app-lesson-tabs></app-lesson-tabs>
+      <app-lesson-tabs [moduleId]="moduleId" [courseId]="courseId" [selectedLessonId]="lessonId"></app-lesson-tabs>
     </div>
   </div>
   <div class="row">
     <div class="col-4 d-none d-md-block" id="course-editor-module-list">
-      <app-module-list></app-module-list>
+      <app-module-list [courseId]="courseId" [selectedModuleId]="moduleId"></app-module-list>
     </div>
     <div class="col-8">
-      <app-topic-pills></app-topic-pills>
+      <app-topic-pills [moduleId]="moduleId" [courseId]="courseId" [lessonId]="lessonId" [selectedTopicId]="topicId"></app-topic-pills>
       <app-widget-list></app-widget-list>
     </div>
   </div>
