@@ -35,11 +35,20 @@ export class TopicPillsComponent implements OnInit, OnChanges {
     }
     this.service
       .findTopicsForLesson(this.lessonId)
-      .then(topics => this.topics = topics);
+      .then(topics => this.topics = topics)
+      .then(value => this.checkEmptyList());
   }
+
+  checkEmptyList(){
+    if (this.topics === undefined || this.topics.length === 0) {
+      alert('No topics for selected lesson!');
+    }
+  }
+
   ngOnInit() {
     this.service
       .findTopicsForLesson(this.lessonId)
-      .then(topics => this.topics = topics);
+      .then(topics => this.topics = topics)
+      .then(value => this.checkEmptyList());
   }
 }

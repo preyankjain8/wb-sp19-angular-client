@@ -32,11 +32,18 @@ export class ModuleListComponent implements OnInit, OnChanges {
     }
   }
 
+  checkEmptyList(){
+    if (this.modules === undefined || this.modules.length === 0) {
+      alert('No Modules for selected course!');
+    }
+  }
+
   ngOnInit() {
     console.log(this.selectedModuleId);
     this.service
       .findModulesForCourse(this.courseId)
-      .then(modules => this.modules = modules);
+      .then(modules => this.modules = modules)
+      .then(value => this.checkEmptyList());
   }
 
 }

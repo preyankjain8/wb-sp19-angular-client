@@ -32,13 +32,21 @@ export class LessonTabsComponent implements OnInit, OnChanges {
     }
     this.service
       .findLessonsForModule(this.moduleId).catch(reason => console.log(reason.toString()))
-      .then(lessons => this.lessons = lessons);
+      .then(lessons => this.lessons = lessons)
+      .then(value => this.checkEmptyList());
+
   }
 
+  checkEmptyList() {
+    if (this.lessons === undefined || this.lessons.length === 0) {
+      alert('No lessons for selected module!');
+    }
+  }
   ngOnInit() {
     this.service
       .findLessonsForModule(this.moduleId).catch(reason => console.log(reason.toString()))
-      .then(lessons => this.lessons = lessons);
+      .then(lessons => this.lessons = lessons)
+      .then(value => this.checkEmptyList());
   }
 
 }

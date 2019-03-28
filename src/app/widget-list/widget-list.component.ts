@@ -14,18 +14,25 @@ export class WidgetListComponent implements OnInit, OnDestroy {
   widgets = []
   constructor(private service: WidgetServiceClient, private route: ActivatedRoute, private router: Router) { }
 
+  checkEmptyList(){
+    if (this.widgets === undefined || this.widgets.length === 0) {
+      alert('No widgets for selected topic!');
+    }
+  }
   ngOnInit() {
     this.subscription = this.route.params.subscribe(
       params => {
         this.topicId = params['topicId'];
         this.service
           .findWidgetsForTopic(this.topicId)
-          .then(widgets => this.widgets = widgets);
+          .then(widgets => this.widgets = widgets)
+          .then(value => this.checkEmptyList());
       }
     );
     this.service
       .findWidgetsForTopic(this.topicId)
-      .then(widgets => this.widgets = widgets);
+      .then(widgets => this.widgets = widgets)
+      .then(value => this.checkEmptyList());
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
