@@ -1,3 +1,5 @@
+li { cursor: pointer; }
+
 .module-item.active {
   background-color: #4e555b;
 }

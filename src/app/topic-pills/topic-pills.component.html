@@ -1,5 +1,5 @@
 <ul class="nav nav-pills">
-  <li class='topic-item nav-item'
+  <li class='topic-item nav-link'
       *ngFor="let topic of topics"
       [ngClass]="{'active': topic.id == selectedTopicId}"
   (click)="topicSelected(topic)">

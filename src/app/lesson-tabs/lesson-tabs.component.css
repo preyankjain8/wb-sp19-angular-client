@@ -1,3 +1,6 @@
-.nav-item.active {
+li { cursor: pointer; }
+
+.nav-link.active {
   background-color: #4e555b;
+  color: white;
 }

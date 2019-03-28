@@ -1,9 +1,9 @@
 <ul class="nav nav-tabs"
     id="course-editor-lessonTabs">
-  <li class="nav-item"
+  <li class="nav-link"
       [ngClass]="{'active': lesson.id == selectedLessonId}"
       *ngFor="let lesson of lessons"
   (click)="lessonSelected(lesson)">
-      {{lesson.title}}&nbsp;&nbsp;
+    {{lesson.title}}
   </li>
 </ul>

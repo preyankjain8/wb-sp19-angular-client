@@ -1,3 +1,5 @@
+li { cursor: pointer; }
+
 #TopicPillsNav{
   background: black;
   color: gray;
