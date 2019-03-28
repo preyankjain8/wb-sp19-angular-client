@@ -1,28 +1,17 @@
 export class ModuleServiceClient {
 
-  findModulesForCourse = (courseId) => {
-    return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/course/' + courseId + '/modules', {
-      method: 'GET'
-    }).then(response => response.json())
-      .catch(error => {
-        console.log(error.toString());
-      });
-  }
+  findModulesForCourse = (courseId) =>
+    fetch
+    ('https://peaceful-reef-79181.herokuapp.com/api/student/course/' + courseId + '/modules')
+      .then(response => response.json())
 
-  findModuleById = moduleId => {
-    return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/modules/' + moduleId, {
-      method: 'GET',
-      credentials: 'include'
-    })
-      .then(response => response.json());
-  }
+  findModuleById = moduleId =>
+    fetch
+    ('https://peaceful-reef-79181.herokuapp.com/api/student/modules/' + moduleId)
+      .then(response => response.json())
 
-  findAllModules = () => {
-    return fetch('https://peaceful-reef-79181.herokuapp.com/api/student/modules', {
-      method: 'GET',
-      credentials: 'include'
-    })
-      .then(response => response.json());
-  }
-
+  findAllModules = () =>
+    fetch
+    ('https://peaceful-reef-79181.herokuapp.com/api/student/modules')
+      .then(response => response.json())
 }
